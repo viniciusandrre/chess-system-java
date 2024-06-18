@@ -5,7 +5,6 @@ public class Piece {
 	private Board board;
 	
 	public Piece() {
-		super();
 	}
 
 	public Piece(Board board) {
