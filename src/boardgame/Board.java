@@ -1,14 +1,11 @@
 package boardgame;
 
 public class Board {
-	private Integer rows;
-	private Integer columns;
+	private int rows;
+	private int columns;
 	private Piece pieces[][];
 	
-	public Board() {
-	}
-
-	public Board(Integer rows, Integer columns) {
+	public Board(int rows, int columns) {
 		if(rows<1 || columns<1) {
 			throw new BoardException
 			("Error Creating Board: Is necessary at least"
@@ -19,11 +16,11 @@ public class Board {
 		pieces = new Piece[rows][columns];
 	}
 
-	public Integer getRows() {
+	public int getRows() {
 		return rows;
 	}
 	
-	public Integer getColumns() {
+	public int getColumns() {
 		return columns;
 	}
 
@@ -63,5 +60,18 @@ public class Board {
 			throw new BoardException("Position not on the board");
 		}
 		return piece(position) != null;
+	}
+	
+	public Piece removePiece(Position position) {
+		if(!positionExists(position)) {
+			throw new BoardException("Position not on the board");
+		}
+		if(piece(position)==null) {
+			return null;
+		}
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
 	}
 }

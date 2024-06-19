@@ -22,7 +22,7 @@ public class ChessPosition {
 		return column;
 	}
 
-	public Integer getRow() {
+	public int getRow() {
 		return row;
 	}
 	
@@ -37,7 +37,7 @@ public class ChessPosition {
 	
 	@Override
 	public String toString() {
-		return " " + column + row;
+		return "" + column + row;
 	}
 	
 }
